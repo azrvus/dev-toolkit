@@ -4,7 +4,8 @@ from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
 
 
 def test_mask_secret():
-    assert mask_secret("supersecretkey1234") == "*************1234"
+    # 18 chars total: 14 asterisks + '1234'
+    assert mask_secret("supersecretkey1234") == "**************1234"
     assert mask_secret("123") == "***"
 
 
