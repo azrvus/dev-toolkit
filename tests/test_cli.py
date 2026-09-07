@@ -1,6 +1,7 @@
 """Tests for CLI interface."""
 
 import pytest
+
 from dev_toolkit.cli import main
 
 

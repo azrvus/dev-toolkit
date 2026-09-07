@@ -2,10 +2,9 @@
 
 import platform
 import sys
-from typing import Dict
 
 
-def get_system_info() -> Dict[str, str]:
+def get_system_info() -> dict[str, str]:
     """Return key platform and Python environment metadata."""
     return {
         "os": platform.system(),
