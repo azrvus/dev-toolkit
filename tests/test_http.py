@@ -1,6 +1,7 @@
 """Tests for async HTTP utilities."""
 
 import asyncio
+
 from dev_toolkit.http import fetch_json
 
 
