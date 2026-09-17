@@ -1,5 +1,6 @@
 """Dev Toolkit package initialization."""
 
+from dev_toolkit.cli import main, parse_args
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
@@ -15,8 +16,10 @@ __all__ = [
     "get_env_summary",
     "get_json_logger",
     "get_system_info",
+    "main",
     "mask_secret",
     "normalize_whitespace",
+    "parse_args",
     "print_system_summary",
     "read_json",
     "slugify",

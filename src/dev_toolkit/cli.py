@@ -1,30 +1,44 @@
-"""Command-line interface entry point for dev-toolkit."""
+"""Command-line interface utilities."""
 
 import argparse
 import sys
+from collections.abc import Sequence
+from importlib.metadata import PackageNotFoundError, version
 
-from dev_toolkit.system import print_system_summary
+try:
+    __version__ = version("dev-toolkit")
+except PackageNotFoundError:
+    __version__ = "0.1.0"
 
 
-def main() -> None:
-    """Parse CLI arguments and dispatch commands."""
+def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
+    """Parse command-line arguments for dev-toolkit."""
     parser = argparse.ArgumentParser(
         prog="dev-toolkit",
-        description="Developer utility toolkit for system inspection and environment tasks.",
+        description="Developer utility toolkit CLI.",
     )
-    subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="enable verbose output",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
+    )
+    return parser.parse_args(args)
 
-    # Subcommand: sysinfo
-    subparsers.add_parser("sysinfo", help="Print detailed system environment summary")
 
-    args = parser.parse_args()
-
-    if args.command == "sysinfo":
-        print_system_summary()
-    else:
-        parser.print_help()
-        sys.exit(0 if len(sys.argv) > 1 else 1)
+def main(args: Sequence[str] | None = None) -> int:
+    """CLI entrypoint execution."""
+    parsed_args = parse_args(args)
+    if parsed_args.verbose:
+        print("Verbose mode enabled.")
+    print("Dev Toolkit CLI operational.")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
