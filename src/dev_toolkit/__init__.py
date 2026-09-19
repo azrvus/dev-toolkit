@@ -1,5 +1,6 @@
 """Dev Toolkit package initialization."""
 
+from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.decorators import retry
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
@@ -23,8 +24,10 @@ __all__ = [
     "parse_args",
     "print_system_summary",
     "read_json",
+    "read_json_async",
     "retry",
     "slugify",
     "truncate_words",
     "write_json",
+    "write_json_async",
 ]
