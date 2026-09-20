@@ -8,10 +8,18 @@ from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
 from dev_toolkit.system import get_system_info, print_system_summary
-from dev_toolkit.text import normalize_whitespace, slugify, truncate_words
+from dev_toolkit.text import (
+    camel_to_snake,
+    normalize_whitespace,
+    sanitize_filename,
+    slugify,
+    snake_to_camel,
+    truncate_words,
+)
 
 __version__ = "0.1.0"
 __all__ = [
+    "camel_to_snake",
     "check_required_env",
     "ensure_dir",
     "fetch_json",
@@ -26,7 +34,9 @@ __all__ = [
     "read_json",
     "read_json_async",
     "retry",
+    "sanitize_filename",
     "slugify",
+    "snake_to_camel",
     "truncate_words",
     "write_json",
     "write_json_async",
