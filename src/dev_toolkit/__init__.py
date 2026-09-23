@@ -4,6 +4,7 @@ from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.decorators import retry
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
+from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
@@ -26,7 +27,9 @@ __all__ = [
     "ensure_dir",
     "fetch_json",
     "get_env_summary",
+    "get_file_hash",
     "get_json_logger",
+    "get_str_hash",
     "get_system_info",
     "main",
     "mask_secret",
