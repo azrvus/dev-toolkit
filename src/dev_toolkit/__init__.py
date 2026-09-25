@@ -9,6 +9,7 @@ from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
+from dev_toolkit.process import ProcessResult, run_command
 from dev_toolkit.system import get_system_info, print_system_summary
 from dev_toolkit.text import (
     camel_to_snake,
@@ -22,6 +23,7 @@ from dev_toolkit.timer import Timer, timed
 
 __version__ = "0.1.0"
 __all__ = [
+    "ProcessResult",
     "Timer",
     "camel_to_snake",
     "check_required_env",
@@ -43,6 +45,7 @@ __all__ = [
     "read_json",
     "read_json_async",
     "retry",
+    "run_command",
     "sanitize_filename",
     "slugify",
     "snake_to_camel",
