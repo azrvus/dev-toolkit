@@ -5,6 +5,7 @@ from dev_toolkit.cli import main, parse_args
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import deep_merge, flatten_dict, get_in
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
+from dev_toolkit.formatters import format_bytes, format_duration
 from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
@@ -31,6 +32,8 @@ __all__ = [
     "ensure_dir",
     "fetch_json",
     "flatten_dict",
+    "format_bytes",
+    "format_duration",
     "get_env_summary",
     "get_file_hash",
     "get_in",
