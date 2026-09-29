@@ -3,6 +3,7 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
+
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
 
 
