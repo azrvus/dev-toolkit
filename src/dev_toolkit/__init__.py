@@ -11,6 +11,7 @@ from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
 from dev_toolkit.process import ProcessResult, run_command
+from dev_toolkit.rate_limiter import TokenBucket, rate_limit
 from dev_toolkit.system import get_system_info, print_system_summary
 from dev_toolkit.text import (
     camel_to_snake,
@@ -26,6 +27,7 @@ __version__ = "0.1.0"
 __all__ = [
     "ProcessResult",
     "Timer",
+    "TokenBucket",
     "camel_to_snake",
     "check_required_env",
     "deep_merge",
@@ -45,6 +47,7 @@ __all__ = [
     "normalize_whitespace",
     "parse_args",
     "print_system_summary",
+    "rate_limit",
     "read_json",
     "read_json_async",
     "retry",
