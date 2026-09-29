@@ -1,6 +1,20 @@
-from unittest.mock import patch
+"""Tests for rate limiting utilities."""
+
+from unittest.mock import MagicMock, patch
+
 import pytest
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
+
+
+def test_token_bucket_non_blocking_success():
+    bucket = TokenBucket(rate=10, capacity=10)
+    assert bucket.consume(tokens=5, block=False) is True
+
+
+def test_token_bucket_non_blocking_insufficient_tokens():
+    bucket = TokenBucket(rate=1, capacity=1)
+    assert bucket.consume(tokens=1, block=False) is True
+    assert bucket.consume(tokens=1, block=False) is False
 
 
 def test_token_bucket_blocking_wait():
@@ -13,18 +27,37 @@ def test_token_bucket_blocking_wait():
         nonlocal current_time
         current_time += seconds
 
-    # Target the import inside dev_toolkit.rate_limiter
-    with patch("dev_toolkit.rate_limiter.time.monotonic", side_effect=mock_monotonic), \
-         patch("dev_toolkit.rate_limiter.time.sleep", side_effect=mock_sleep) as spy_sleep:
-        
-        # Instantiate inside the patch block so bucket.last_refill starts at 100.0
+    with (
+        patch(
+            "dev_toolkit.rate_limiter.time.monotonic",
+            side_effect=mock_monotonic,
+        ),
+        patch(
+            "dev_toolkit.rate_limiter.time.sleep",
+            side_effect=mock_sleep,
+        ) as spy_sleep,
+    ):
         bucket = TokenBucket(rate=10, capacity=10)
-        
-        # Drain the bucket completely
         assert bucket.consume(tokens=10, block=False) is True
-
-        # Consuming 5 tokens at rate=10/s requires a 0.5s wait
         bucket.consume(tokens=5, block=True)
-
-        # Verify sleep was called with expected duration
         spy_sleep.assert_called_once_with(0.5)
+
+
+def test_token_bucket_invalid_params():
+    with pytest.raises(ValueError):
+        TokenBucket(rate=0)
+
+    with pytest.raises(ValueError):
+        TokenBucket(rate=10, capacity=-1)
+
+    bucket = TokenBucket(rate=5)
+    with pytest.raises(ValueError):
+        bucket.consume(tokens=0)
+
+
+def test_rate_limit_decorator():
+    mock_func = MagicMock(return_value="done")
+    decorated = rate_limit(rate=100)(mock_func)
+
+    assert decorated() == "done"
+    assert mock_func.call_count == 1
