@@ -3,7 +3,15 @@
 from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.decorators import retry
-from dev_toolkit.dict_utils import deep_merge, flatten_dict, get_in
+from dev_toolkit.dict_utils import (
+    chunk_list,
+    deep_merge,
+    filter_keys,
+    flatten_dict,
+    get_in,
+    omit,
+    pick,
+)
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
 from dev_toolkit.formatters import format_bytes, format_duration
 from dev_toolkit.hash import get_file_hash, get_str_hash
@@ -30,9 +38,11 @@ __all__ = [
     "TokenBucket",
     "camel_to_snake",
     "check_required_env",
+    "chunk_list",
     "deep_merge",
     "ensure_dir",
     "fetch_json",
+    "filter_keys",
     "flatten_dict",
     "format_bytes",
     "format_duration",
@@ -45,7 +55,9 @@ __all__ = [
     "main",
     "mask_secret",
     "normalize_whitespace",
+    "omit",
     "parse_args",
+    "pick",
     "print_system_summary",
     "rate_limit",
     "read_json",
