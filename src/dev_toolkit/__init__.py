@@ -18,6 +18,12 @@ from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
+from dev_toolkit.path_utils import (
+    find_files,
+    get_dir_size,
+    get_tree,
+    replace_extension,
+)
 from dev_toolkit.process import ProcessResult, run_command
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
 from dev_toolkit.system import get_system_info, print_system_summary
@@ -30,6 +36,13 @@ from dev_toolkit.text import (
     truncate_words,
 )
 from dev_toolkit.timer import Timer, timed
+from dev_toolkit.validators import (
+    in_range,
+    is_email,
+    is_ipv4,
+    is_ipv6,
+    is_url,
+)
 
 __version__ = "0.1.0"
 __all__ = [
@@ -43,15 +56,23 @@ __all__ = [
     "ensure_dir",
     "fetch_json",
     "filter_keys",
+    "find_files",
     "flatten_dict",
     "format_bytes",
     "format_duration",
+    "get_dir_size",
     "get_env_summary",
     "get_file_hash",
     "get_in",
     "get_json_logger",
     "get_str_hash",
     "get_system_info",
+    "get_tree",
+    "in_range",
+    "is_email",
+    "is_ipv4",
+    "is_ipv6",
+    "is_url",
     "main",
     "mask_secret",
     "normalize_whitespace",
@@ -62,6 +83,7 @@ __all__ = [
     "rate_limit",
     "read_json",
     "read_json_async",
+    "replace_extension",
     "retry",
     "run_command",
     "sanitize_filename",
