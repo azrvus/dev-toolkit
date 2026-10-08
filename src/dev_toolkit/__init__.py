@@ -2,6 +2,7 @@
 
 from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.cli import main, parse_args
+from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import (
     chunk_list,
@@ -52,6 +53,7 @@ __all__ = [
     "camel_to_snake",
     "check_required_env",
     "chunk_list",
+    "colorize",
     "deep_merge",
     "ensure_dir",
     "fetch_json",
@@ -60,6 +62,7 @@ __all__ = [
     "flatten_dict",
     "format_bytes",
     "format_duration",
+    "format_table",
     "get_dir_size",
     "get_env_summary",
     "get_file_hash",
@@ -80,6 +83,7 @@ __all__ = [
     "parse_args",
     "pick",
     "print_system_summary",
+    "progress_bar",
     "rate_limit",
     "read_json",
     "read_json_async",
