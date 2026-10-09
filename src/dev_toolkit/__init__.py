@@ -1,6 +1,7 @@
 """Dev Toolkit package initialization."""
 
 from dev_toolkit.async_io import read_json_async, write_json_async
+from dev_toolkit.cache import CacheInfo, ttl_cache
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.decorators import retry
@@ -47,6 +48,7 @@ from dev_toolkit.validators import (
 
 __version__ = "0.1.0"
 __all__ = [
+    "CacheInfo",
     "ProcessResult",
     "Timer",
     "TokenBucket",
@@ -95,6 +97,7 @@ __all__ = [
     "snake_to_camel",
     "timed",
     "truncate_words",
+    "ttl_cache",
     "write_json",
     "write_json_async",
 ]
