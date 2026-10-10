@@ -28,6 +28,7 @@ from dev_toolkit.path_utils import (
 )
 from dev_toolkit.process import ProcessResult, run_command
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
+from dev_toolkit.retry_utils import retry_with_backoff
 from dev_toolkit.system import get_system_info, print_system_summary
 from dev_toolkit.text import (
     camel_to_snake,
@@ -91,6 +92,7 @@ __all__ = [
     "read_json_async",
     "replace_extension",
     "retry",
+    "retry_with_backoff",
     "run_command",
     "sanitize_filename",
     "slugify",
