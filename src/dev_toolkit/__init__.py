@@ -4,6 +4,8 @@ from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.cache import CacheInfo, ttl_cache
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
+from dev_toolkit.cli_spinner import Spinner
+from dev_toolkit.concurrency import run_parallel, run_parallel_processes
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import (
     chunk_list,
@@ -51,6 +53,7 @@ __version__ = "0.1.0"
 __all__ = [
     "CacheInfo",
     "ProcessResult",
+    "Spinner",
     "Timer",
     "TokenBucket",
     "camel_to_snake",
@@ -94,6 +97,8 @@ __all__ = [
     "retry",
     "retry_with_backoff",
     "run_command",
+    "run_parallel",
+    "run_parallel_processes",
     "sanitize_filename",
     "slugify",
     "snake_to_camel",
