@@ -22,6 +22,7 @@ from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
+from dev_toolkit.masking import mask_email, mask_secret_string, sanitize_dict
 from dev_toolkit.path_utils import (
     find_files,
     get_dir_size,
@@ -83,7 +84,9 @@ __all__ = [
     "is_ipv6",
     "is_url",
     "main",
+    "mask_email",
     "mask_secret",
+    "mask_secret_string",
     "normalize_whitespace",
     "omit",
     "parse_args",
@@ -99,6 +102,7 @@ __all__ = [
     "run_command",
     "run_parallel",
     "run_parallel_processes",
+    "sanitize_dict",
     "sanitize_filename",
     "slugify",
     "snake_to_camel",
