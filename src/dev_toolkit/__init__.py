@@ -49,6 +49,7 @@ from dev_toolkit.validators import (
     is_ipv6,
     is_url,
 )
+from dev_toolkit.watcher import watch_path
 
 __version__ = "0.1.0"
 __all__ = [
@@ -109,6 +110,7 @@ __all__ = [
     "timed",
     "truncate_words",
     "ttl_cache",
+    "watch_path",
     "write_json",
     "write_json_async",
 ]
