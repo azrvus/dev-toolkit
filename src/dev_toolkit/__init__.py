@@ -30,6 +30,7 @@ from dev_toolkit.path_utils import (
     replace_extension,
 )
 from dev_toolkit.process import ProcessResult, run_command
+from dev_toolkit.random_utils import generate_uuid, random_string
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
 from dev_toolkit.retry_utils import retry_with_backoff
 from dev_toolkit.system import get_system_info, print_system_summary
@@ -71,6 +72,7 @@ __all__ = [
     "format_bytes",
     "format_duration",
     "format_table",
+    "generate_uuid",
     "get_dir_size",
     "get_env_summary",
     "get_file_hash",
@@ -94,6 +96,7 @@ __all__ = [
     "pick",
     "print_system_summary",
     "progress_bar",
+    "random_string",
     "rate_limit",
     "read_json",
     "read_json_async",
