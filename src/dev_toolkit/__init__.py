@@ -16,6 +16,7 @@ from dev_toolkit.dict_utils import (
     omit,
     pick,
 )
+from dev_toolkit.encoding import base64_decode, base64_encode
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
 from dev_toolkit.formatters import format_bytes, format_duration
 from dev_toolkit.hash import get_file_hash, get_str_hash
@@ -59,6 +60,8 @@ __all__ = [
     "Spinner",
     "Timer",
     "TokenBucket",
+    "base64_decode",
+    "base64_encode",
     "camel_to_snake",
     "check_required_env",
     "chunk_list",
