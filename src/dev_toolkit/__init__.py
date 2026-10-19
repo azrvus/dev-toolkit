@@ -6,6 +6,7 @@ from dev_toolkit.cli import main, parse_args
 from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.cli_spinner import Spinner
 from dev_toolkit.concurrency import run_parallel, run_parallel_processes
+from dev_toolkit.config import ConfigManager
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import (
     chunk_list,
@@ -18,6 +19,7 @@ from dev_toolkit.dict_utils import (
 )
 from dev_toolkit.encoding import base64_decode, base64_encode
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
+from dev_toolkit.events import EventEmitter
 from dev_toolkit.formatters import format_bytes, format_duration
 from dev_toolkit.hash import get_file_hash, get_str_hash
 from dev_toolkit.http import fetch_json
@@ -35,6 +37,7 @@ from dev_toolkit.random_utils import generate_uuid, random_string
 from dev_toolkit.rate_limiter import TokenBucket, rate_limit
 from dev_toolkit.retry_utils import retry_with_backoff
 from dev_toolkit.system import get_system_info, print_system_summary
+from dev_toolkit.templating import render_string, render_template_file
 from dev_toolkit.text import (
     camel_to_snake,
     normalize_whitespace,
@@ -56,6 +59,8 @@ from dev_toolkit.watcher import watch_path
 __version__ = "0.1.0"
 __all__ = [
     "CacheInfo",
+    "ConfigManager",
+    "EventEmitter",
     "ProcessResult",
     "Spinner",
     "Timer",
@@ -103,6 +108,8 @@ __all__ = [
     "rate_limit",
     "read_json",
     "read_json_async",
+    "render_string",
+    "render_template_file",
     "replace_extension",
     "retry",
     "retry_with_backoff",
