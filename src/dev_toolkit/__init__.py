@@ -47,6 +47,7 @@ from dev_toolkit.text import (
     truncate_words,
 )
 from dev_toolkit.timer import Timer, timed
+from dev_toolkit.transforms import capitalize_words, normalize_spaces, to_snake_case
 from dev_toolkit.validators import (
     in_range,
     is_email,
@@ -68,6 +69,7 @@ __all__ = [
     "base64_decode",
     "base64_encode",
     "camel_to_snake",
+    "capitalize_words",
     "check_required_env",
     "chunk_list",
     "colorize",
@@ -98,6 +100,7 @@ __all__ = [
     "mask_email",
     "mask_secret",
     "mask_secret_string",
+    "normalize_spaces",
     "normalize_whitespace",
     "omit",
     "parse_args",
@@ -121,6 +124,7 @@ __all__ = [
     "slugify",
     "snake_to_camel",
     "timed",
+    "to_snake_case",
     "truncate_words",
     "ttl_cache",
     "watch_path",
