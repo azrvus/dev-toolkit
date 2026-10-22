@@ -1,6 +1,7 @@
 """Dev Toolkit package initialization."""
 
 from dev_toolkit.async_io import read_json_async, write_json_async
+from dev_toolkit.banner import print_banner, print_box, print_divider
 from dev_toolkit.cache import CacheInfo, ttl_cache
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
@@ -48,6 +49,11 @@ from dev_toolkit.text import (
 )
 from dev_toolkit.timer import Timer, timed
 from dev_toolkit.transforms import capitalize_words, normalize_spaces, to_snake_case
+from dev_toolkit.url_utils import (
+    add_query_params,
+    parse_query_params,
+    remove_query_params,
+)
 from dev_toolkit.validators import (
     in_range,
     is_email,
@@ -66,6 +72,7 @@ __all__ = [
     "Spinner",
     "Timer",
     "TokenBucket",
+    "add_query_params",
     "base64_decode",
     "base64_encode",
     "camel_to_snake",
@@ -104,13 +111,18 @@ __all__ = [
     "normalize_whitespace",
     "omit",
     "parse_args",
+    "parse_query_params",
     "pick",
+    "print_banner",
+    "print_box",
+    "print_divider",
     "print_system_summary",
     "progress_bar",
     "random_string",
     "rate_limit",
     "read_json",
     "read_json_async",
+    "remove_query_params",
     "render_string",
     "render_template_file",
     "replace_extension",
