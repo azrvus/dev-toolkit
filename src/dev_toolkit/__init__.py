@@ -8,6 +8,7 @@ from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.cli_spinner import Spinner
 from dev_toolkit.concurrency import run_parallel, run_parallel_processes
 from dev_toolkit.config import ConfigManager
+from dev_toolkit.crypto_utils import generate_token, md5_hash, sha256_hash
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import (
     chunk_list,
@@ -65,7 +66,9 @@ from dev_toolkit.watcher import watch_path
 
 __version__ = "0.1.0"
 __all__ = [
-    "CacheInfo",
+    "generate_token",
+    "md5_hash",
+    "sha256_hashCacheInfo",
     "ConfigManager",
     "EventEmitter",
     "ProcessResult",
