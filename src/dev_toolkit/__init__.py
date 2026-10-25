@@ -8,6 +8,7 @@ from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.cli_spinner import Spinner
 from dev_toolkit.concurrency import run_parallel, run_parallel_processes
 from dev_toolkit.config import ConfigManager
+from dev_toolkit.crypto_utils import generate_token, md5_hash, sha256_hash
 from dev_toolkit.decorators import retry
 from dev_toolkit.dict_utils import (
     chunk_list,
@@ -89,6 +90,7 @@ __all__ = [
     "format_bytes",
     "format_duration",
     "format_table",
+    "generate_token",
     "generate_uuid",
     "get_dir_size",
     "get_env_summary",
@@ -107,6 +109,7 @@ __all__ = [
     "mask_email",
     "mask_secret",
     "mask_secret_string",
+    "md5_hash",
     "normalize_spaces",
     "normalize_whitespace",
     "omit",
@@ -133,6 +136,8 @@ __all__ = [
     "run_parallel_processes",
     "sanitize_dict",
     "sanitize_filename",
+    "sha256_hash",
+    "sha256_hashCacheInfo",
     "slugify",
     "snake_to_camel",
     "timed",
