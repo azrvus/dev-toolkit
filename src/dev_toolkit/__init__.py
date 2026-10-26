@@ -6,6 +6,7 @@ from dev_toolkit.cache import CacheInfo, ttl_cache
 from dev_toolkit.cli import main, parse_args
 from dev_toolkit.cli_formatters import colorize, format_table, progress_bar
 from dev_toolkit.cli_spinner import Spinner
+from dev_toolkit.color import blue, bold, green, red, yellow
 from dev_toolkit.concurrency import run_parallel, run_parallel_processes
 from dev_toolkit.config import ConfigManager
 from dev_toolkit.crypto_utils import generate_token, md5_hash, sha256_hash
@@ -28,6 +29,7 @@ from dev_toolkit.http import fetch_json
 from dev_toolkit.io import ensure_dir, read_json, write_json
 from dev_toolkit.logger import get_json_logger
 from dev_toolkit.masking import mask_email, mask_secret_string, sanitize_dict
+from dev_toolkit.pagination import paginate
 from dev_toolkit.path_utils import (
     find_files,
     get_dir_size,
@@ -76,6 +78,8 @@ __all__ = [
     "add_query_params",
     "base64_decode",
     "base64_encode",
+    "blue",
+    "bold",
     "camel_to_snake",
     "capitalize_words",
     "check_required_env",
@@ -100,6 +104,7 @@ __all__ = [
     "get_str_hash",
     "get_system_info",
     "get_tree",
+    "green",
     "in_range",
     "is_email",
     "is_ipv4",
@@ -113,6 +118,7 @@ __all__ = [
     "normalize_spaces",
     "normalize_whitespace",
     "omit",
+    "paginate",
     "parse_args",
     "parse_query_params",
     "pick",
@@ -125,6 +131,7 @@ __all__ = [
     "rate_limit",
     "read_json",
     "read_json_async",
+    "red",
     "remove_query_params",
     "render_string",
     "render_template_file",
@@ -147,4 +154,5 @@ __all__ = [
     "watch_path",
     "write_json",
     "write_json_async",
+    "yellow",
 ]
