@@ -22,6 +22,7 @@ from dev_toolkit.dict_utils import (
 )
 from dev_toolkit.encoding import base64_decode, base64_encode
 from dev_toolkit.env import check_required_env, get_env_summary, mask_secret
+from dev_toolkit.env_validator import get_env_or_raise, validate_env
 from dev_toolkit.events import EventEmitter
 from dev_toolkit.formatters import format_bytes, format_duration
 from dev_toolkit.hash import get_file_hash, get_str_hash
@@ -58,8 +59,6 @@ from dev_toolkit.url_utils import (
     remove_query_params,
 )
 from dev_toolkit.validators import (
-    in_range,
-    is_email,
     is_ipv4,
     is_ipv6,
     is_url,
@@ -97,6 +96,7 @@ __all__ = [
     "generate_token",
     "generate_uuid",
     "get_dir_size",
+    "get_env_or_raise",
     "get_env_summary",
     "get_file_hash",
     "get_in",
@@ -151,6 +151,7 @@ __all__ = [
     "to_snake_case",
     "truncate_words",
     "ttl_cache",
+    "validate_env",
     "watch_path",
     "write_json",
     "write_json_async",
