@@ -59,6 +59,8 @@ from dev_toolkit.url_utils import (
     remove_query_params,
 )
 from dev_toolkit.validators import (
+    in_range,
+    is_email,
     is_ipv4,
     is_ipv6,
     is_url,
@@ -144,7 +146,6 @@ __all__ = [
     "sanitize_dict",
     "sanitize_filename",
     "sha256_hash",
-    "sha256_hashCacheInfo",
     "slugify",
     "snake_to_camel",
     "timed",
