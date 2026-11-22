@@ -1,5 +1,9 @@
 # Dev Toolkit
 
+![Dev Toolkit terminal demo: installing the public package and validating JSONL](docs/assets/terminal-demo.png)
+
+*Terminal capture rendered from actual commands and output using the public 0.1.0 release.*
+
 [![CI](https://github.com/azrvus/dev-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/azrvus/dev-toolkit/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 

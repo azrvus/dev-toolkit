@@ -1,0 +1,14 @@
+$ python -m pip install --quiet azrvus-dev-toolkit==0.1.0
+
+$ dev-toolkit --version
+dev-toolkit 0.1.0
+
+$ cat eval.jsonl
+{"prompt":"What is 2 + 2?","expected":"4"}
+
+$ dev-toolkit validate-jsonl eval.jsonl --required-key prompt --required-key expected
+Valid JSONL.
+
+$ dev-toolkit validate-jsonl eval.jsonl --required-key answer
+line 1: missing required keys: ['answer']
+# exit 1
