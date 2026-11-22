@@ -8,6 +8,7 @@ First public release, pending publication and public install verification.
 - Use the streaming `validate_jsonl` Python API with no runtime dependencies.
 - Use existing utilities for text, JSON I/O, environment checks, caching, retries,
   processes, and more. Fix package exports and restore default IO test discovery.
+- Publish as `azrvus-dev-toolkit` with the maintainer username prefix.
 - Install the Python 3.11+ package under `dev_toolkit`; run the `dev-toolkit` CLI.
 - Include the MIT license, accurate documentation, and one package/CLI version source.
 - Verify wheel and source distributions in Python 3.11/3.12 CI, including isolated

@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "dev-toolkit"
+name = "azrvus-dev-toolkit"
 dynamic = ["version"]
 description = "Dependency-free Python utilities and local JSONL validation for LLM evaluation datasets."
 license = "MIT"

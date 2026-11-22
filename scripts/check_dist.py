@@ -42,7 +42,7 @@ def main():
                 member = next(m for m in archive if m.name.endswith("/PKG-INFO"))
                 metadata = email.message_from_bytes(archive.extractfile(member).read())
                 assert any(m.name.endswith("/LICENSE") for m in archive)
-        assert metadata["Name"] == "dev-toolkit"
+        assert metadata["Name"] == "azrvus-dev-toolkit"
         assert metadata["Requires-Python"] == ">=3.11"
         assert metadata["License-Expression"] == "MIT"
         assert not metadata.get_all("Requires-Dist")
@@ -73,7 +73,7 @@ def main():
                 (
                     "import dev_toolkit as d; from importlib.metadata import version; "
                     "assert all(hasattr(d, n) for n in d.__all__); "
-                    "assert d.__version__ == version('dev-toolkit'); "
+                    "assert d.__version__ == version('azrvus-dev-toolkit'); "
                     "print(d.__version__)"
                 ),
                 cwd=work,

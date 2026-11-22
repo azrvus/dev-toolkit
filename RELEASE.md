@@ -10,7 +10,7 @@ Register a pending GitHub Trusted Publisher at
 
 | Field | Value |
 | --- | --- |
-| PyPI project name | `dev-toolkit` |
+| PyPI project name | `azrvus-dev-toolkit` |
 | GitHub owner | `azrvus` |
 | Repository | `dev-toolkit` |
 | Workflow filename | `release.yml` |
@@ -23,7 +23,7 @@ The two registries have separate accounts and publisher configurations.
 
 See [PyPI's pending publisher guide](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/).
 A 404 for the project does not reserve the name or guarantee PyPI will accept it.
-Recheck <https://pypi.org/pypi/dev-toolkit/json> immediately before publishing;
+Recheck <https://pypi.org/pypi/azrvus-dev-toolkit/json> immediately before publishing;
 if someone else owns it, stop and select a new distribution name with the maintainer.
 
 ## Verify and optionally rehearse
@@ -55,13 +55,13 @@ be overwritten; do not dispatch the same version twice after a successful upload
    and isolated artifact installs. Only the separate publishing job has OIDC
    permission. It publishes the downloaded build artifacts without checking out
    or executing package code. A prerelease does not publish to public PyPI.
-5. Confirm <https://pypi.org/project/dev-toolkit/0.1.0/> and test all three public
+5. Confirm <https://pypi.org/project/azrvus-dev-toolkit/0.1.0/> and test all three public
    install paths in fresh environments outside the checkout:
 
    ```bash
-   python -m pip install dev-toolkit==0.1.0
-   uv add dev-toolkit==0.1.0
-   uv tool install dev-toolkit==0.1.0
+   python -m pip install azrvus-dev-toolkit==0.1.0
+   uv add azrvus-dev-toolkit==0.1.0
+   uv tool install azrvus-dev-toolkit==0.1.0
    ```
 
    Isolate the uv tool directories using `UV_TOOL_DIR` and `UV_TOOL_BIN_DIR`.
