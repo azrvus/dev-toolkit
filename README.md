@@ -3,6 +3,9 @@
 [![CI](https://github.com/azrvus/dev-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/azrvus/dev-toolkit/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+Published distribution name: `azrvus-dev-toolkit`; Python import: `dev_toolkit`;
+CLI command: `dev-toolkit`.
+
 Python 3.11+ utilities with no runtime dependencies. Includes JSON file I/O,
 text helpers, validation, retries, caching, environment checks, and process tools.
 
@@ -15,7 +18,7 @@ python -m pip install 'git+https://github.com/azrvus/dev-toolkit.git'
 ```
 
 Public PyPI installation is pending release verification. Do not use
-`pip install dev-toolkit` or `uv add dev-toolkit` yet.
+`pip install azrvus-dev-toolkit` or `uv add azrvus-dev-toolkit` yet.
 
 ## Python examples
 
