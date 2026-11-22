@@ -1,45 +1,61 @@
-# Dev Toolkit (`dev-toolkit`)
+# Dev Toolkit
 
-[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
-[![Code Style](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![CI](https://github.com/azrvus/dev-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/azrvus/dev-toolkit/actions)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A lightweight, zero-dependency Python utility library built for modern software development. Designed with a modular `src/` architecture, strict type annotations, and automated CI quality checks.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Quick Start & Modules](#quick-start--modules)
-- [System & Environment](#system--environment)
-- [File I/O & Formatting](#file-io--formatting)
-- [Data Structures & Text](#data-structures--text)
-- [Networking & Async](#networking--async)
-- [Validation & Utilities](#validation--utilities)
-- [Templating](#templating)
-- [Development & Testing](#development--testing)
-- [License](#license)
-
----
-
-## Features
-
-- 🚀 **Zero Outer Dependencies**: Built exclusively on Python's robust standard library.
-- ⚡ **Type-Safe & Fast**: Fully typed with Python 3.11+ hints and validated using `ruff`.
-- 📦 **Modular Architecture**: Explicit `__all__` exports across clear single-responsibility submodules.
-- 🛡️ **Production Ready**: 100% unit test coverage using `pytest`.
-
----
+Python 3.11+ utilities with no runtime dependencies. Includes JSON file I/O,
+text helpers, validation, retries, caching, environment checks, and process tools.
 
 ## Installation
 
-Install using `pip` or manage dependencies with `uv`:
+Install from GitHub (verified in a fresh virtual environment):
 
 ```bash
-# Using pip
-pip install dev-toolkit
+python -m pip install 'git+https://github.com/azrvus/dev-toolkit.git'
+```
 
-# Using uv
-uv add dev-toolkit
+Public PyPI installation is pending release verification. Do not use
+`pip install dev-toolkit` or `uv add dev-toolkit` yet.
+
+## Python examples
+
+```python
+from dev_toolkit import is_email, slugify, read_json, write_json
+
+assert slugify("Hello World") == "hello-world"
+assert is_email("user@example.com")
+write_json("example.json", {"status": "ok"})
+assert read_json("example.json") == {"status": "ok"}
+```
+
+`write_json` creates parent directories and refuses to overwrite existing files
+unless `overwrite=True` is passed.
+
+## Command line
+
+```bash
+dev-toolkit --help
+dev-toolkit --version
+dev-toolkit
+dev-toolkit --verbose
+```
+
+The CLI currently prints `Dev Toolkit CLI operational.`. With `--verbose`
+(or `-v`), it also prints `Verbose mode enabled.`. Library utilities are used
+through Python imports; the CLI does not expose each utility as a command.
+
+## Development
+
+```bash
+uv venv
+uv pip install -e . pytest ruff
+uv run pytest
+uv run ruff check .
+```
+
+CI runs tests and Ruff on Python 3.11 and 3.12. Test results are checked in CI;
+no coverage percentage is claimed.
+
+## License
+
+[MIT](LICENSE).
