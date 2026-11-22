@@ -40,9 +40,9 @@ dev-toolkit
 dev-toolkit --verbose
 ```
 
-The CLI currently prints `Dev Toolkit CLI operational.`. With `--verbose`
+With no subcommand, the CLI prints `Dev Toolkit CLI operational.`. With `--verbose`
 (or `-v`), it also prints `Verbose mode enabled.`. Library utilities are used
-through Python imports; the CLI does not expose each utility as a command.
+through Python imports. The dataset validation subcommand is documented below.
 
 ## Development
 
@@ -59,3 +59,32 @@ no coverage percentage is claimed.
 ## License
 
 [MIT](LICENSE).
+
+## Validate LLM evaluation datasets
+
+Check local UTF-8 JSONL without sending data anywhere. Each line must be a JSON
+object. Blank lines, empty files, malformed JSON, nonfinite numbers, missing keys,
+and unreadable input are errors. Required keys are top-level; null values count
+as present. Errors include line numbers and never print complete records.
+
+```bash
+dev-toolkit validate-jsonl examples/eval-valid.jsonl --required-key prompt --required-key expected
+# Valid JSONL. (exit 0)
+dev-toolkit validate-jsonl examples/eval-invalid.jsonl --required-key prompt --required-key expected
+# line 1: missing required keys: ['expected']
+# line 2: expected a JSON object
+# exit 1; diagnostics go to stderr
+```
+
+The command checks JSON structure and key presence, not semantic correctness or
+model quality. File-level errors use `file:` instead of a line number.
+
+```python
+from dev_toolkit import validate_jsonl
+
+for issue in validate_jsonl("examples/eval-valid.jsonl", required_keys=["prompt"]):
+    print(issue.line, issue.message)
+```
+
+The API yields issues lazily and reads one line at a time; consume the iterator
+to perform validation. It retains no records and has no runtime dependencies.

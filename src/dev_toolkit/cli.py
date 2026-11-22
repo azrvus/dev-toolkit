@@ -5,6 +5,8 @@ import sys
 from collections.abc import Sequence
 from importlib.metadata import PackageNotFoundError, version
 
+from dev_toolkit.jsonl import validate_jsonl
+
 try:
     __version__ = version("dev-toolkit")
 except PackageNotFoundError:
@@ -28,12 +30,31 @@ def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
         action="version",
         version=f"%(prog)s {__version__}",
     )
+    commands = parser.add_subparsers(dest="command")
+    validate = commands.add_parser(
+        "validate-jsonl", help="validate a local UTF-8 JSONL evaluation dataset"
+    )
+    validate.add_argument("path", help="path to the dataset")
+    validate.add_argument(
+        "--required-key", action="append", default=[], metavar="KEY",
+        help="require a top-level key (repeat for multiple keys)",
+    )
     return parser.parse_args(args)
 
 
 def main(args: Sequence[str] | None = None) -> int:
     """CLI entrypoint execution."""
     parsed_args = parse_args(args)
+    if parsed_args.command == "validate-jsonl":
+        invalid = False
+        for issue in validate_jsonl(parsed_args.path, parsed_args.required_key):
+            invalid = True
+            location = f"line {issue.line}" if issue.line else "file"
+            print(f"{location}: {issue.message}", file=sys.stderr)
+        if invalid:
+            return 1
+        print("Valid JSONL.")
+        return 0
     if parsed_args.verbose:
         print("Verbose mode enabled.")
     print("Dev Toolkit CLI operational.")
