@@ -1,5 +1,6 @@
 """Dev Toolkit package initialization."""
 
+from dev_toolkit._version import __version__ as __version__
 from dev_toolkit.async_io import read_json_async, write_json_async
 from dev_toolkit.banner import print_banner, print_box, print_divider
 from dev_toolkit.cache import CacheInfo, ttl_cache
@@ -68,7 +69,6 @@ from dev_toolkit.validators import (
 )
 from dev_toolkit.watcher import watch_path
 
-__version__ = "0.1.0"
 __all__ = [
     "CacheInfo",
     "ConfigManager",
