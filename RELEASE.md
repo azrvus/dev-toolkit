@@ -1,7 +1,10 @@
 # Release procedure
 
-The first public version is **0.1.0**. Publication is pending PyPI Trusted
-Publisher setup and verification; building a distribution is not publication.
+The first public version is **0.1.0**, published and verified at
+<https://pypi.org/project/azrvus-dev-toolkit/0.1.0/>. Its
+[release workflow](https://github.com/azrvus/dev-toolkit/actions/runs/45019830518)
+completed successfully; public pip, uv add, and isolated uv tool installs passed.
+The instructions below document the release procedure.
 
 ## One-time account setup
 
@@ -66,7 +69,7 @@ be overwritten; do not dispatch the same version twice after a successful upload
 
    Isolate the uv tool directories using `UV_TOOL_DIR` and `UV_TOOL_BIN_DIR`.
    Check imports, `dev-toolkit --version`, `--help`, `--verbose`, and valid/invalid
-   JSONL exit codes. These public install commands remain pending until verified.
+   JSONL exit codes. The 0.1.0 public install commands above have been verified.
 6. Update README installation copy through a small PR after public verification.
 
 If GitHub requires an environment approval, approve the named deployment in the
