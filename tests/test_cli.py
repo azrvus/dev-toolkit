@@ -40,3 +40,24 @@ def test_version_flag(capsys):
     assert exc_info.value.code == 0
     captured = capsys.readouterr()
     assert f"dev-toolkit {__version__}" in captured.out
+
+
+@pytest.mark.parametrize("args", [[], ["validate-jsonl", "missing.jsonl"]])
+def test_terminal_signatures_are_ascii_and_can_be_disabled(args, monkeypatch, capsys):
+    monkeypatch.setattr("sys.stdout.isatty", lambda: True)
+    main(args)
+    shown = capsys.readouterr()
+    assert "azrvus" in shown.out
+    assert shown.out.isascii()
+    assert ("|{ }|" if args else "| >_   |") in shown.out
+    main(["--no-art", *args])
+    hidden = capsys.readouterr()
+    assert "azrvus" not in hidden.out
+    assert shown.err == hidden.err
+
+
+def test_version_stays_plain_in_terminal(monkeypatch, capsys):
+    monkeypatch.setattr("sys.stdout.isatty", lambda: True)
+    with pytest.raises(SystemExit):
+        main(["--version"])
+    assert capsys.readouterr().out == f"dev-toolkit {__version__}\n"

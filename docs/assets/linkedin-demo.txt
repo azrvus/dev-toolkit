@@ -1,0 +1,20 @@
+$ dev-toolkit
+  .------.
+  | >_   |  dev-toolkit
+  '------'  azrvus
+Dev Toolkit CLI operational.
+
+$ dev-toolkit validate-jsonl support-eval.jsonl --required-key prompt --required-key expected
+  .---.
+  |{ }|  validate-jsonl
+  '--v'  azrvus
+line 2: missing required keys: ['expected']
+# exit 1: fix the dataset before running the evaluation
+
+$ cp support-eval.fixed.jsonl support-eval.jsonl
+
+$ dev-toolkit validate-jsonl support-eval.jsonl --required-key prompt --required-key expected
+  .---.
+  |{ }|  validate-jsonl
+  '--v'  azrvus
+Valid JSONL.

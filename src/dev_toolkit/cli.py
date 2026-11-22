@@ -7,6 +7,11 @@ from collections.abc import Sequence
 from dev_toolkit._version import __version__
 from dev_toolkit.jsonl import validate_jsonl
 
+_SIGNATURES = {
+    None: "  .------.\n  | >_   |  dev-toolkit\n  '------'  azrvus",
+    "validate-jsonl": "  .---.\n  |{ }|  validate-jsonl\n  '--v'  azrvus",
+}
+
 
 def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
     """Parse command-line arguments for dev-toolkit."""
@@ -25,6 +30,9 @@ def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
         action="version",
         version=f"%(prog)s {__version__}",
     )
+    parser.add_argument(
+        "--no-art", action="store_true", help="hide the terminal ASCII signature"
+    )
     commands = parser.add_subparsers(dest="command")
     validate = commands.add_parser(
         "validate-jsonl", help="validate a local UTF-8 JSONL evaluation dataset"
@@ -40,6 +48,8 @@ def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:
 def main(args: Sequence[str] | None = None) -> int:
     """CLI entrypoint execution."""
     parsed_args = parse_args(args)
+    if sys.stdout.isatty() and not parsed_args.no_art:
+        print(_SIGNATURES[parsed_args.command], flush=True)
     if parsed_args.command == "validate-jsonl":
         invalid = False
         for issue in validate_jsonl(parsed_args.path, parsed_args.required_key):

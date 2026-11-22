@@ -1,8 +1,8 @@
 # Dev Toolkit
 
-![Dev Toolkit terminal demo: installing the public package and validating JSONL](docs/assets/terminal-demo.png)
+![Dev Toolkit in use: finding a missing evaluation field, fixing the dataset, and validating again](docs/assets/linkedin-demo.png)
 
-*Terminal capture rendered from actual commands and output using the public 0.1.0 release.*
+*Actual terminal output from an installed development wheel, using synthetic support-evaluation data.*
 
 [![CI](https://github.com/azrvus/dev-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/azrvus/dev-toolkit/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -107,3 +107,18 @@ for issue in validate_jsonl("examples/eval-valid.jsonl", required_keys=["prompt"
 
 The API yields issues lazily and reads one line at a time; consume the iterator
 to perform validation. It retains no records and has no runtime dependencies.
+
+
+## A little terminal personality
+
+The default command has a tiny terminal signature; `validate-jsonl` has its own
+JSON-check signature. Art appears only when stdout is a terminal. Pipes,
+redirected output, `--help`, and `--version` stay plain. Hide it explicitly with:
+
+```bash
+dev-toolkit --no-art
+dev-toolkit --no-art validate-jsonl examples/eval-valid.jsonl
+```
+
+The ASCII signatures shown above are available on GitHub main; the public PyPI
+0.1.0 release retains plain output. Install the development version to try them.
