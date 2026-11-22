@@ -3,7 +3,7 @@
 [![CI](https://github.com/azrvus/dev-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/azrvus/dev-toolkit/actions)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-Published distribution name: `azrvus-dev-toolkit`; Python import: `dev_toolkit`;
+Distribution name: `azrvus-dev-toolkit`; Python import: `dev_toolkit`;
 CLI command: `dev-toolkit`.
 
 Python 3.11+ utilities with no runtime dependencies. Includes JSON file I/O,
@@ -11,14 +11,26 @@ text helpers, validation, retries, caching, environment checks, and process tool
 
 ## Installation
 
-Install from GitHub (verified in a fresh virtual environment):
+Install the [verified public release](https://pypi.org/project/azrvus-dev-toolkit/0.1.0/):
+
+```bash
+python -m pip install azrvus-dev-toolkit==0.1.0
+# Or add to a uv project:
+uv add azrvus-dev-toolkit==0.1.0
+# Or install the CLI in its own tool environment:
+uv tool install azrvus-dev-toolkit==0.1.0
+```
+
+All three installation paths were verified outside the checkout, including
+imports, CLI flags, and passing/failing JSONL validation. For a fresh uv trial,
+create the project outside this repository so it does not join its workspace.
+Use `uv run dev-toolkit --version` inside a uv project.
+
+To install the development version from GitHub:
 
 ```bash
 python -m pip install 'git+https://github.com/azrvus/dev-toolkit.git'
 ```
-
-Public PyPI installation is pending release verification. Do not use
-`pip install azrvus-dev-toolkit` or `uv add azrvus-dev-toolkit` yet.
 
 ## Python examples
 

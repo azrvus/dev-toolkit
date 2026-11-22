@@ -1,6 +1,9 @@
 # Dev Toolkit 0.1.0
 
-First public release, pending publication and public install verification.
+Published on [PyPI](https://pypi.org/project/azrvus-dev-toolkit/0.1.0/) from
+commit `82d0dc466845b63619b9a390912ce103e040e191` through GitHub OIDC.
+Fresh public pip, uv add, and isolated uv tool installs passed imports, CLI flags,
+and valid/invalid JSONL smoke tests.
 
 - Validate local UTF-8 JSONL evaluation datasets with `dev-toolkit validate-jsonl`.
   Require top-level keys, find malformed JSON and invalid records by line number,
