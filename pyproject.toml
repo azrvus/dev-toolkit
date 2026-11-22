@@ -4,8 +4,20 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dev-toolkit"
-version = "0.1.0"
-description = "A collection of backend utility functions and automation scripts."
+dynamic = ["version"]
+description = "Dependency-free Python utilities and local JSONL validation for LLM evaluation datasets."
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "azrvus"}]
+keywords = ["jsonl", "llm", "evaluation", "validation", "developer-tools"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
@@ -20,3 +32,14 @@ pythonpath = ["src"]
 [tool.ruff]
 line-length = 88
 target-version = "py311"
+
+[project.urls]
+Homepage = "https://github.com/azrvus/dev-toolkit"
+Repository = "https://github.com/azrvus/dev-toolkit"
+Issues = "https://github.com/azrvus/dev-toolkit/issues"
+
+[tool.hatch.version]
+path = "src/dev_toolkit/_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dev_toolkit"]

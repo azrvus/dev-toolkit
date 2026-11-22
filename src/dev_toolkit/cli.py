@@ -3,14 +3,9 @@
 import argparse
 import sys
 from collections.abc import Sequence
-from importlib.metadata import PackageNotFoundError, version
 
+from dev_toolkit._version import __version__
 from dev_toolkit.jsonl import validate_jsonl
-
-try:
-    __version__ = version("dev-toolkit")
-except PackageNotFoundError:
-    __version__ = "0.1.0"
 
 
 def parse_args(args: Sequence[str] | None = None) -> argparse.Namespace:

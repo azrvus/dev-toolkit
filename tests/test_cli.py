@@ -2,6 +2,7 @@
 
 import pytest
 
+from dev_toolkit import __version__
 from dev_toolkit.cli import main, parse_args
 
 
@@ -38,4 +39,4 @@ def test_version_flag(capsys):
         parse_args(["--version"])
     assert exc_info.value.code == 0
     captured = capsys.readouterr()
-    assert "dev-toolkit 0.1.0" in captured.out
+    assert f"dev-toolkit {__version__}" in captured.out
